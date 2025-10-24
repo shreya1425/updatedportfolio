@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shreya Tangirala - Instructional Designer & eLearning Specialist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+            background: #000000;
+            color: #e2e8f0;
+        }
+
+        /* Stars Animation */
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 4s infinite;
+            box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+        }
+
+        .moving-star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ffffff, transparent);
+            border-radius: 50%;
+            right: -10px;
+            animation: shootingStar 6s linear infinite;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.6);
+        }
+
+        .moving-star-left {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: linear-gradient(270deg, transparent, #ffffff, transparent);
+            border-radius: 50%;
+            left: -10px;
+            animation: shootingStarLeft 8s linear infinite;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 16px rgba(255, 255, 255, 0.5);
+        }
+
+        .moving-star-diagonal {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: radial-gradient(circle, #ffffff, transparent);
+            border-radius: 50%;
+            animation: shootingStarDiagonal 10s linear infinite;
+            box-shadow: 0 0 6px rgba(255, 255, 255, 0.7), 0 0 12px rgba(255, 255, 255, 0.4);
+        }
+
+        .moving-star-vertical {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            background: #ffffff;
+            border-radius: 50%;
+            animation: shootingStarVertical 12s linear infinite;
+            box-shadow: 0 0 4px rgba(255, 255, 255, 0.6), 0 0 8px rgba(255, 255, 255, 0.3);
+        }
+
+        .constellation-star {
+            position: absolute;
+            background: #ffffff;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+        }
+
+        @keyframes twinkle {
+            0%, 100% { 
+                opacity: 0.4; 
+                transform: scale(1);
+                box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+            }
+            50% { 
+                opacity: 1; 
+                transform: scale(1.3);
+                box-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 24px rgba(255, 255, 255, 0.6);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { 
+                opacity: 0.6; 
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 1; 
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes shootingStar {
+            0% { 
+                right: -10px; 
+                opacity: 0;
+                transform: translateX(0) translateY(0);
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+            }
+            10% { 
+                opacity: 1;
+                box-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8);
+            }
+            90% { 
+                opacity: 1;
+                box-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8);
+            }
+            100% { 
+                right: 100vw; 
+                opacity: 0;
+                transform: translateX(-300px) translateY(150px);
+                box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+            }
+        }
+
+        @keyframes shootingStarLeft {
+            0% { 
+                left: -10px; 
+                opacity: 0;
+                transform: translateX(0) translateY(0);
+            }
+            15% { 
+                opacity: 1;
+            }
+            85% { 
+                opacity: 1;
+            }
+            100% { 
+                left: 100vw; 
+                opacity: 0;
+                transform: translateX(250px) translateY(-100px);
+            }
+        }
+
+        @keyframes shootingStarDiagonal {
+            0% { 
+                top: -10px;
+                left: -10px;
+                opacity: 0;
+                transform: translateX(0) translateY(0);
+            }
+            20% { 
+                opacity: 1;
+            }
+            80% { 
+                opacity: 1;
+            }
+            100% { 
+                top: 100vh;
+                left: 100vw;
+                opacity: 0;
+                transform: translateX(-100px) translateY(-100px);
+            }
+        }
+
+        @keyframes shootingStarVertical {
+            0% { 
+                top: -10px; 
+                opacity: 0;
+                transform: translateY(0);
+            }
+            25% { 
+                opacity: 1;
+            }
+            75% { 
+                opacity: 1;
+            }
+            100% { 
+                top: 100vh; 
+                opacity: 0;
+                transform: translateY(50px);
+            }
+        }
+
+        h1, h2, h3, .retro-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+        
+        .hero-bg {
+            background: #000000;
+            position: relative;
+            overflow: hidden;
+            min-height: 100%;
+        }
+        
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 25% 75%, rgba(59, 130, 246, 0.2) 0%, transparent 60%),
+                radial-gradient(circle at 75% 25%, rgba(168, 85, 247, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.1) 0%, transparent 70%);
+        }
+
+        .floating-orb {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(59, 130, 246, 0.3), rgba(168, 85, 247, 0.2));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-orb:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-orb:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .floating-orb:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            bottom: 30%;
+            left: 60%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(120deg); }
+            66% { transform: translateY(10px) rotate(240deg); }
+        }
+        
+        .skill-icon {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .skill-icon:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .timeline-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #a855f7, #3b82f6, #10b981);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .timeline-item.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: 0;
+            margin-right: 55%;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 55%;
+            margin-right: 0;
+            text-align: left;
+        }
+
+        .timeline-circle {
+            position: absolute;
+            left: 50%;
+            top: 2rem;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #a855f7, #3b82f6);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 25px rgba(168, 85, 247, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-circle:hover {
+            transform: translateX(-50%) scale(1.1);
+            box-shadow: 0 12px 35px rgba(168, 85, 247, 0.4);
+        }
+
+        .project-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .nav-link {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #a855f7, #3b82f6);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #a855f7, #3b82f6);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(168, 85, 247, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .timeline-line {
+                left: 30px;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 80px;
+                margin-right: 0;
+                text-align: left;
+            }
+            
+            .timeline-circle {
+                left: 30px;
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1e293b, #334155);
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-gray-900">
+    <!-- Stars Background -->
+    <div class="stars-container"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-black/95 backdrop-blur-md shadow-lg z-50 transition-all duration-300 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-2xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+                    Shreya Tangirala
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-300 hover:text-purple-400 font-medium">Home</a>
+                    <a href="#about" class="nav-link text-gray-300 hover:text-purple-400 font-medium">About</a>
+                    <a href="#skills" class="nav-link text-gray-300 hover:text-purple-400 font-medium">Skills</a>
+                    <a href="#experience" class="nav-link text-gray-300 hover:text-purple-400 font-medium">Experience</a>
+                    <a href="#projects" class="nav-link text-gray-300 hover:text-purple-400 font-medium">Projects</a>
+                    <a href="#contact" class="nav-link text-gray-300 hover:text-purple-400 font-medium">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-purple-400">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden bg-black/95 backdrop-blur-md shadow-lg hidden border-t border-gray-800">
+            <div class="px-4 py-2 space-y-2">
+                <a href="#home" class="block py-2 text-gray-300 hover:text-purple-400 font-medium">Home</a>
+                <a href="#about" class="block py-2 text-gray-300 hover:text-purple-400 font-medium">About</a>
+                <a href="#skills" class="block py-2 text-gray-300 hover:text-purple-400 font-medium">Skills</a>
+                <a href="#experience" class="block py-2 text-gray-300 hover:text-purple-400 font-medium">Experience</a>
+                <a href="#projects" class="block py-2 text-gray-300 hover:text-purple-400 font-medium">Projects</a>
+                <a href="#contact" class="block py-2 text-gray-300 hover:text-purple-400 font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg relative z-10 pt-20">
+        <div class="floating-orb"></div>
+        <div class="floating-orb"></div>
+        <div class="floating-orb"></div>
+        
+        <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center">
+
+                
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                    Shreya <span class="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Tangirala</span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+                    Instructional Designer | eLearning & Digital Learning Specialist
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="scrollToSection('projects')" class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg">
+                        <i class="fas fa-rocket mr-2"></i>
+                        View My Work
+                    </button>
+                    <button onclick="scrollToSection('contact')" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-gray-900 transition-all duration-300">
+                        <i class="fas fa-envelope mr-2"></i>
+                        Get In Touch
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-black relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">About Me</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-purple-400 to-blue-400 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                <div class="space-y-6">
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        I'm a Dynamic Instructional Designer with over 3 years of experience designing interactive, learner-centered, and analytics-driven training solutions across digital, virtual, and blended learning environments. My work bridges creativity and strategy — using tools like Articulate Storyline, Rise 360, Camtasia, Vyond, and Adobe Creative Suite to craft engaging eLearning, vILT, and microlearning experiences that drive measurable performance outcomes.
+                    </p>
+                    
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        I specialize in transforming complex content into accessible, experiential learning guided by adult learning principles, ADDIE/SAM methodologies, and learner analytics. My approach integrates AI-enhanced design, accessibility compliance (WCAG 2.1), and agile project management to deliver impactful, inclusive, and scalable learning programs.
+                    </p>
+                    
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        Having collaborated with SMEs, DEI teams, and cross-functional stakeholders, I bring a proven ability to translate organizational goals into innovative learning experiences that improve engagement, retention, and skill application.
+                    </p>
+                </div>
+                
+                <div class="relative">
+                    <div class="bg-gradient-to-br from-gray-700 to-gray-600 rounded-2xl p-8 shadow-xl border border-gray-600 h-80 flex items-center justify-center">
+                        <div class="text-center text-gray-400">
+                            <i class="fas fa-image text-6xl mb-4"></i>
+                            <p class="text-lg">Professional Image Space</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h3 class="text-xl font-bold text-white mb-4">Core Strengths:</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                            <div class="bg-gray-700/50 p-3 rounded-lg text-center border border-gray-600">
+                                <i class="fas fa-play-circle text-purple-400 mb-2"></i>
+                                <div class="text-sm text-gray-300">Articulate Storyline & Rise 360</div>
+                            </div>
+                            <div class="bg-gray-700/50 p-3 rounded-lg text-center border border-gray-600">
+                                <i class="fas fa-video text-blue-400 mb-2"></i>
+                                <div class="text-sm text-gray-300">Vyond</div>
+                            </div>
+                            <div class="bg-gray-700/50 p-3 rounded-lg text-center border border-gray-600">
+                                <i class="fas fa-camera text-green-400 mb-2"></i>
+                                <div class="text-sm text-gray-300">Camtasia</div>
+                            </div>
+                            <div class="bg-gray-700/50 p-3 rounded-lg text-center border border-gray-600">
+                                <i class="fas fa-palette text-orange-400 mb-2"></i>
+                                <div class="text-sm text-gray-300">Adobe Creative Suite</div>
+                            </div>
+                            <div class="bg-gray-700/50 p-3 rounded-lg text-center border border-gray-600">
+                                <i class="fas fa-graduation-cap text-pink-400 mb-2"></i>
+                                <div class="text-sm text-gray-300">Canvas & Moodle</div>
+                            </div>
+                            <div class="bg-gray-700/50 p-3 rounded-lg text-center border border-gray-600">
+                                <i class="fas fa-cogs text-indigo-400 mb-2"></i>
+                                <div class="text-sm text-gray-300">ADDIE & SAM</div>
+                            </div>
+                            <div class="bg-gray-700/50 p-3 rounded-lg text-center border border-gray-600">
+                                <i class="fas fa-robot text-cyan-400 mb-2"></i>
+                                <div class="text-sm text-gray-300">AI in Learning Design</div>
+                            </div>
+                            <div class="bg-gray-700/50 p-3 rounded-lg text-center border border-gray-600">
+                                <i class="fas fa-universal-access text-yellow-400 mb-2"></i>
+                                <div class="text-sm text-gray-300">Accessibility (WCAG 2.1)</div>
+                            </div>
+                            <div class="bg-gray-700/50 p-3 rounded-lg text-center border border-gray-600">
+                                <i class="fas fa-tasks text-red-400 mb-2"></i>
+                                <div class="text-sm text-gray-300">Agile Project Management</div>
+                            </div>
+                            <div class="bg-gray-700/50 p-3 rounded-lg text-center border border-gray-600">
+                                <i class="fas fa-chart-line text-teal-400 mb-2"></i>
+                                <div class="text-sm text-gray-300">Learner Analytics</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-black relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Skills & Expertise</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-purple-400 to-blue-400 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Instructional Design & eLearning -->
+                <div class="skill-icon bg-gray-800 p-8 rounded-2xl shadow-lg text-center border border-gray-700 hover:border-purple-500/50">
+                    <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-graduation-cap text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Instructional Design & eLearning</h3>
+                    <p class="text-gray-400 mb-6">ADDIE, SAM, H5P, 7taps, adult learning principles, storyboarding</p>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-300">ADDIE/SAM</span>
+                            <span class="text-purple-400 font-semibold">Expert</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-gradient-to-r from-purple-500 to-purple-600 h-2 rounded-full" style="width: 95%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LMS -->
+                <div class="skill-icon bg-gray-800 p-8 rounded-2xl shadow-lg text-center border border-gray-700 hover:border-blue-500/50">
+                    <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-chalkboard-teacher text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">LMS</h3>
+                    <p class="text-gray-400 mb-6">Canvas, Moodle, Brightspace, Blackboard, Workday Learning</p>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-300">Canvas & Moodle</span>
+                            <span class="text-blue-400 font-semibold">Advanced</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-gradient-to-r from-blue-500 to-blue-600 h-2 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- eLearning Tools -->
+                <div class="skill-icon bg-gray-800 p-8 rounded-2xl shadow-lg text-center border border-gray-700 hover:border-green-500/50">
+                    <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-laptop-code text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">eLearning Tools</h3>
+                    <p class="text-gray-400 mb-6">Articulate 360, Vyond, Camtasia, Captivate, Canva</p>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-300">Articulate 360</span>
+                            <span class="text-green-400 font-semibold">Expert</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-gradient-to-r from-green-500 to-green-600 h-2 rounded-full" style="width: 95%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accessibility & QA -->
+                <div class="skill-icon bg-gray-800 p-8 rounded-2xl shadow-lg text-center border border-gray-700 hover:border-orange-500/50">
+                    <div class="w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-universal-access text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Accessibility & QA</h3>
+                    <p class="text-gray-400 mb-6">WCAG 2.1, testing, optimization</p>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-300">WCAG 2.1</span>
+                            <span class="text-orange-400 font-semibold">Advanced</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-2 rounded-full" style="width: 88%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data & Analytics -->
+                <div class="skill-icon bg-gray-800 p-8 rounded-2xl shadow-lg text-center border border-gray-700 hover:border-pink-500/50">
+                    <div class="w-20 h-20 bg-gradient-to-br from-pink-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Data & Analytics</h3>
+                    <p class="text-gray-400 mb-6">feedback, dashboards, outcomes measurement</p>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-300">Analytics</span>
+                            <span class="text-pink-400 font-semibold">Advanced</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-gradient-to-r from-pink-500 to-pink-600 h-2 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Management -->
+                <div class="skill-icon bg-gray-800 p-8 rounded-2xl shadow-lg text-center border border-gray-700 hover:border-indigo-500/50">
+                    <div class="w-20 h-20 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-tasks text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Project Management</h3>
+                    <p class="text-gray-400 mb-6">Asana, Trello, Microsoft Planner</p>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-300">Agile Methods</span>
+                            <span class="text-indigo-400 font-semibold">Proficient</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-gradient-to-r from-indigo-500 to-indigo-600 h-2 rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="experience" class="py-20 bg-black relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Professional Journey</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-purple-400 to-blue-400 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-circle">
+                        <i class="fas fa-graduation-cap text-white text-xl"></i>
+                    </div>
+                    <div class="timeline-content bg-gradient-to-br from-gray-700 to-gray-600 p-8 rounded-2xl shadow-lg border border-gray-600">
+                        <div class="text-sm text-purple-400 font-semibold mb-2">Nov 2023 – Jan 2025</div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Graduate Student Coordinator | Office of DEI</h3>
+                        <h4 class="text-lg text-gray-300 mb-4">Oklahoma City University, Oklahoma City, OK</h4>
+                        <ul class="text-gray-400 mb-4 space-y-2">
+                            <li>• Designed and implemented blended and online learning programs using Canvas and Moodle, applying adult learning principles to enhance inclusivity and engagement.</li>
+                            <li>• Developed interactive microlearning and multimedia-based training using AI video tools and assessments for continuous improvement.</li>
+                            <li>• Facilitated virtual instructor-led sessions and workshops, improving LMS adoption and faculty engagement across departments.</li>
+                            <li>• Conducted content accessibility reviews and digital migrations, ensuring compliance and consistent learner experience.</li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-purple-900/50 text-purple-300 rounded-full text-sm border border-purple-500/30">Canvas & Moodle</span>
+                            <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm border border-blue-500/30">DEI Leadership</span>
+                            <span class="px-3 py-1 bg-green-900/50 text-green-300 rounded-full text-sm border border-green-500/30">Microlearning</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-circle">
+                        <i class="fas fa-users text-white text-xl"></i>
+                    </div>
+                    <div class="timeline-content bg-gradient-to-br from-gray-700 to-gray-600 p-8 rounded-2xl shadow-lg border border-gray-600">
+                        <div class="text-sm text-blue-400 font-semibold mb-2">Aug 2024 – Dec 2024</div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Peer Mentor | Student Affairs</h3>
+                        <h4 class="text-lg text-gray-300 mb-4">Oklahoma City University</h4>
+                        <ul class="text-gray-400 mb-4 space-y-2">
+                            <li>• Created and facilitated an 8-week blended professional development series focused on digital literacy and employability skills for adult learners.</li>
+                            <li>• Designed microlearning videos and branching scenarios to personalize learner experience, improving completion rates by 25%.</li>
+                            <li>• Analyzed learner feedback and performance data to evaluate and enhance instructional design strategies.</li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm border border-blue-500/30">Professional Development</span>
+                            <span class="px-3 py-1 bg-green-900/50 text-green-300 rounded-full text-sm border border-green-500/30">Branching Scenarios</span>
+                            <span class="px-3 py-1 bg-orange-900/50 text-orange-300 rounded-full text-sm border border-orange-500/30">Data Analysis</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-circle">
+                        <i class="fas fa-laptop text-white text-xl"></i>
+                    </div>
+                    <div class="timeline-content bg-gradient-to-br from-gray-700 to-gray-600 p-8 rounded-2xl shadow-lg border border-gray-600">
+                        <div class="text-sm text-green-400 font-semibold mb-2">Mar 2024 – Aug 2024</div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Work Study | Student Affairs</h3>
+                        <h4 class="text-lg text-gray-300 mb-4">Oklahoma City University</h4>
+                        <ul class="text-gray-400 mb-4 space-y-2">
+                            <li>• Supported LMS administration, eLearning deployment, and quality assurance to ensure course consistency and accessibility.</li>
+                            <li>• Developed quick guides, infographics, and digital learning resources using Canva, Adobe Creative Suite, and HTML5.</li>
+                            <li>• Streamlined content production and tracking via Asana and Trello, increasing design efficiency by 15%.</li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-green-900/50 text-green-300 rounded-full text-sm border border-green-500/30">LMS Administration</span>
+                            <span class="px-3 py-1 bg-orange-900/50 text-orange-300 rounded-full text-sm border border-orange-500/30">Adobe Creative Suite</span>
+                            <span class="px-3 py-1 bg-pink-900/50 text-pink-300 rounded-full text-sm border border-pink-500/30">Project Management</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-circle">
+                        <i class="fas fa-cog text-white text-xl"></i>
+                    </div>
+                    <div class="timeline-content bg-gradient-to-br from-gray-700 to-gray-600 p-8 rounded-2xl shadow-lg border border-gray-600">
+                        <div class="text-sm text-orange-400 font-semibold mb-2">June 2022 – Jun 2023</div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Quality Assurance</h3>
+                        <h4 class="text-lg text-gray-300 mb-4">OpenText Technologies</h4>
+                        <ul class="text-gray-400 mb-4 space-y-2">
+                            <li>• Designed and tested interactive eLearning and onboarding modules for enterprise HR and LMS platforms.</li>
+                            <li>• Collaborated with SMEs to create compliance documentation, training guides, and multimedia simulations.</li>
+                            <li>• Applied ADDIE and Agile frameworks to develop scalable, data-driven learning solutions for technical audiences.</li>
+                            <li>• Conducted usability and ADA/WCAG testing, resolving 40+ accessibility issues and improving learner experience.</li>
+                            <li>• Integrated scenario-based assessments and simulations, reducing learner-reported usability issues by 15%.</li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-orange-900/50 text-orange-300 rounded-full text-sm border border-orange-500/30">eLearning Development</span>
+                            <span class="px-3 py-1 bg-green-900/50 text-green-300 rounded-full text-sm border border-green-500/30">ADDIE Framework</span>
+                            <span class="px-3 py-1 bg-pink-900/50 text-pink-300 rounded-full text-sm border border-pink-500/30">WCAG Testing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-black relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Project Samples / Case Studies</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-purple-400 to-blue-400 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Work Sample 1 -->
+                <div class="project-card bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-700 hover:border-purple-500/50" onclick="window.open('https://360.articulate.com/review/content/a9a38f30-fc40-4a07-b426-e7f2ed210ba3/review', '_blank', 'noopener,noreferrer')">
+                    <div class="h-48 bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
+                        <i class="fas fa-laptop-code text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3">Digital Skills for Modern Workplace</h3>
+                        <p class="text-gray-400 mb-4">Interactive course exploring essential digital skills, incorporating multimedia elements and accessibility guidelines for inclusive learning.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-purple-900/50 text-purple-300 rounded text-sm border border-purple-500/30">Rise 360</span>
+                            <span class="px-2 py-1 bg-blue-900/50 text-blue-300 rounded text-sm border border-blue-500/30">Canva</span>
+                            <span class="px-2 py-1 bg-green-900/50 text-green-300 rounded text-sm border border-green-500/30">After Effects</span>
+                        </div>
+                        <div class="flex justify-end items-center">
+                            <i class="fas fa-external-link-alt text-purple-400"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work Sample 2 -->
+                <div class="project-card bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-700 hover:border-blue-500/50" onclick="window.open('https://rise.articulate.com/share/8ceWjSoST3pkeM2VrzDbuJYrByhHoz8g', '_blank', 'noopener,noreferrer')">
+                    <div class="h-48 bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center">
+                        <i class="fas fa-graduation-cap text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3">University to Corporate Transition</h3>
+                        <p class="text-gray-400 mb-4">Microlearning course for students transitioning to corporate environments, emphasizing DEI principles and workplace adaptation strategies.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-900/50 text-blue-300 rounded text-sm border border-blue-500/30">Rise 360</span>
+                            <span class="px-2 py-1 bg-green-900/50 text-green-300 rounded text-sm border border-green-500/30">Microlearning</span>
+                            <span class="px-2 py-1 bg-orange-900/50 text-orange-300 rounded text-sm border border-orange-500/30">DEI Focus</span>
+                        </div>
+                        <div class="flex justify-end items-center">
+                            <i class="fas fa-external-link-alt text-blue-400"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work Sample 3 -->
+                <div class="project-card bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-700 hover:border-green-500/50" onclick="window.open('https://oklahoma-city-university-5056.reach360.com/manage/courses/course/577f346b-0eb8-4c90-9b9d-c080d1702518?login_hint=stangirala%40my.okcu.edu', '_blank', 'noopener,noreferrer')">
+                    <div class="h-48 bg-gradient-to-br from-green-500 to-orange-500 flex items-center justify-center">
+                        <i class="fas fa-street-view text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3">360° Virtual Office Tour</h3>
+                        <p class="text-gray-400 mb-4">Interactive 360-degree virtual tour of modern office environment with embedded markers for exploratory learning and workplace familiarization.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-green-900/50 text-green-300 rounded text-sm border border-green-500/30">Storyline 360</span>
+                            <span class="px-2 py-1 bg-orange-900/50 text-orange-300 rounded text-sm border border-orange-500/30">360° Virtual Tour</span>
+                            <span class="px-2 py-1 bg-purple-900/50 text-purple-300 rounded text-sm border border-purple-500/30">WCAG 2.1</span>
+                        </div>
+                        <div class="flex justify-end items-center">
+                            <i class="fas fa-external-link-alt text-green-400"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work Sample 4 -->
+                <div class="project-card bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-700 hover:border-pink-500/50" onclick="window.open('http://192.168.12.220:25030/livepreview//HTML5Temp788011170156Pre/index.html', '_blank', 'noopener,noreferrer')">
+                    <div class="h-48 bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center">
+                        <i class="fas fa-desktop text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3">Interactive Captivate Module</h3>
+                        <p class="text-gray-400 mb-4">Comprehensive interactive learning experience built with Adobe Captivate, featuring multimedia elements, accessibility compliance, and audio integration.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-pink-900/50 text-pink-300 rounded text-sm border border-pink-500/30">Adobe Captivate</span>
+                            <span class="px-2 py-1 bg-purple-900/50 text-purple-300 rounded text-sm border border-purple-500/30">HTML</span>
+                            <span class="px-2 py-1 bg-blue-900/50 text-blue-300 rounded text-sm border border-blue-500/30">Accessibility</span>
+                        </div>
+                        <div class="flex justify-end items-center">
+                            <i class="fas fa-external-link-alt text-pink-400"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work Sample 5 -->
+                <div class="project-card bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-700 hover:border-orange-500/50" onclick="window.open('https://app.7taps.com/n323YSpyYbCl', '_blank', 'noopener,noreferrer')">
+                    <div class="h-48 bg-gradient-to-br from-orange-500 to-yellow-500 flex items-center justify-center">
+                        <i class="fas fa-mobile-alt text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3">Quick Learner Hand Guide</h3>
+                        <p class="text-gray-400 mb-4">Mobile-friendly microlearning guide designed for daily workplace preparation, created with 7taps for bite-sized learning experiences.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-orange-900/50 text-orange-300 rounded text-sm border border-orange-500/30">7taps</span>
+                            <span class="px-2 py-1 bg-yellow-900/50 text-yellow-300 rounded text-sm border border-yellow-500/30">Canva</span>
+                            <span class="px-2 py-1 bg-red-900/50 text-red-300 rounded text-sm border border-red-500/30">Microlearning</span>
+                        </div>
+                        <div class="flex justify-end items-center">
+                            <i class="fas fa-external-link-alt text-orange-400"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work Sample 6 -->
+                <div class="project-card bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-700 hover:border-teal-500/50" onclick="window.open('https://mworksample.h5p.com/content/808', '_blank', 'noopener,noreferrer')">
+                    <div class="h-48 bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center">
+                        <i class="fas fa-gamepad text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3">Interactive Game Challenge</h3>
+                        <p class="text-gray-400 mb-4">Engaging H5P-powered learning game with interactive challenges, multimedia content, and audio elements for immersive educational experiences.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-teal-900/50 text-teal-300 rounded text-sm border border-teal-500/30">H5P</span>
+                            <span class="px-2 py-1 bg-cyan-900/50 text-cyan-300 rounded text-sm border border-cyan-500/30">Canva</span>
+                            <span class="px-2 py-1 bg-blue-900/50 text-blue-300 rounded text-sm border border-blue-500/30">Game Design</span>
+                        </div>
+                        <div class="flex justify-end items-center">
+                            <i class="fas fa-external-link-alt text-teal-400"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work Sample 7 -->
+                <div class="project-card bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-700 hover:border-indigo-500/50" onclick="window.open('https://360.articulate.com/review/content/d9d774b8-7397-417a-a174-6809626fad2e/review', '_blank', 'noopener,noreferrer')">
+                    <div class="h-48 bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center">
+                        <i class="fas fa-robot text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3">AI-Enhanced Learning Module</h3>
+                        <p class="text-gray-400 mb-4">Advanced eLearning experience featuring AI-generated audio narration, interactive elements, and modern design principles for enhanced learner engagement.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-indigo-900/50 text-indigo-300 rounded text-sm border border-indigo-500/30">Storyline 360</span>
+                            <span class="px-2 py-1 bg-purple-900/50 text-purple-300 rounded text-sm border border-purple-500/30">Canva</span>
+                            <span class="px-2 py-1 bg-pink-900/50 text-pink-300 rounded text-sm border border-pink-500/30">AI Audio</span>
+                        </div>
+                        <div class="flex justify-end items-center">
+                            <i class="fas fa-external-link-alt text-indigo-400"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Presentation Section -->
+    <section id="video-presentation" class="py-20 bg-black relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Tool Training Video</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-purple-400 to-blue-400 mx-auto rounded-full"></div>
+                <p class="text-xl text-gray-300 mt-6 max-w-3xl mx-auto">Professional training presentation created with Camtasia, demonstrating instructional design techniques and tool mastery</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-700 hover:border-purple-500/50 transition-all duration-300">
+                    <!-- Video Container -->
+                    <div class="relative bg-gradient-to-br from-purple-500 to-blue-500 aspect-video flex items-center justify-center">
+                        <div class="absolute inset-0 bg-black/20"></div>
+                        <div class="relative z-10 text-center">
+                            <div class="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-sm border border-white/30">
+                                <i class="fas fa-play text-white text-3xl ml-1"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Camtasia Training Presentation</h3>
+                            <p class="text-white/80 mb-6">Click to upload and display your training video</p>
+                            <button onclick="handleVideoUpload()" class="bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 backdrop-blur-sm border border-white/30">
+                                <i class="fas fa-upload mr-2"></i>
+                                Upload Video
+                            </button>
+                        </div>
+                        <!-- Decorative elements -->
+                        <div class="absolute top-6 right-6 w-16 h-16 border-2 border-white/20 rounded-full"></div>
+                        <div class="absolute bottom-6 left-6 w-8 h-8 bg-white/10 rounded-full"></div>
+                        <div class="absolute top-1/2 left-8 w-4 h-4 bg-white/15 rotate-45"></div>
+                    </div>
+                    
+                    <!-- Video Details -->
+                    <div class="p-8">
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-4">Training Overview</h4>
+                                <p class="text-gray-400 mb-4">This comprehensive training video demonstrates advanced Camtasia techniques for creating professional eLearning content, including screen recording, editing workflows, and interactive elements.</p>
+                                <div class="space-y-2">
+                                    <div class="flex items-center text-gray-300">
+                                        <i class="fas fa-clock text-purple-400 mr-3"></i>
+                                        <span>Duration: Professional presentation length</span>
+                                    </div>
+                                    <div class="flex items-center text-gray-300">
+                                        <i class="fas fa-video text-blue-400 mr-3"></i>
+                                        <span>Format: HD Video with Audio</span>
+                                    </div>
+                                    <div class="flex items-center text-gray-300">
+                                        <i class="fas fa-users text-green-400 mr-3"></i>
+                                        <span>Audience: eLearning Professionals</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-4">Key Topics Covered</h4>
+                                <div class="space-y-3">
+                                    <div class="flex items-start">
+                                        <div class="w-2 h-2 bg-purple-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                        <span class="text-gray-300">Advanced screen recording techniques</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                        <span class="text-gray-300">Professional video editing workflows</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                        <span class="text-gray-300">Interactive elements and callouts</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="w-2 h-2 bg-orange-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                        <span class="text-gray-300">Audio enhancement and synchronization</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="w-2 h-2 bg-pink-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                        <span class="text-gray-300">Export optimization for different platforms</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 pt-6 border-t border-gray-700">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-purple-900/50 text-purple-300 rounded-full text-sm border border-purple-500/30">Camtasia</span>
+                                <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm border border-blue-500/30">Screen Recording</span>
+                                <span class="px-3 py-1 bg-green-900/50 text-green-300 rounded-full text-sm border border-green-500/30">Video Editing</span>
+                                <span class="px-3 py-1 bg-orange-900/50 text-orange-300 rounded-full text-sm border border-orange-500/30">Training Design</span>
+                                <span class="px-3 py-1 bg-pink-900/50 text-pink-300 rounded-full text-sm border border-pink-500/30">Professional Development</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Guides Section -->
+    <section id="job-guides" class="py-20 bg-black relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Job Guides & Resources</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-purple-400 to-blue-400 mx-auto rounded-full"></div>
+                <p class="text-xl text-gray-300 mt-6 max-w-3xl mx-auto">Visual guides and infographics designed to help professionals navigate career transitions and workplace success</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Job Guide 1 -->
+                <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden border border-gray-700 hover:border-purple-500/50 transition-all duration-300 hover:transform hover:scale-105">
+                    <div class="h-64 bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center relative overflow-hidden">
+                        <img src="file:///C:/Users/shrey/Downloads/Portfolio%20work/Checklist.png" alt="Career Transition Checklist" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center" style="display: none;">
+                            <div class="text-center">
+                                <i class="fas fa-briefcase text-white text-5xl mb-4"></i>
+                                <h3 class="text-2xl font-bold text-white">Career Transition</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-white mb-3">Career Transition Checklist</h4>
+                        <p class="text-gray-400 mb-4">Comprehensive visual checklist covering essential steps for transitioning from student to professional life, including resume building, interview preparation, and workplace readiness.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-purple-900/50 text-purple-300 rounded-full text-sm border border-purple-500/30">Infographic Design</span>
+                            <span class="px-3 py-1 bg-pink-900/50 text-pink-300 rounded-full text-sm border border-pink-500/30">Career Development</span>
+                        </div>
+                        <button class="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 rounded-lg font-semibold hover:from-purple-600 hover:to-pink-600 transition-all duration-300">
+                            <i class="fas fa-download mr-2"></i>
+                            View Guide
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Job Guide 2 -->
+                <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden border border-gray-700 hover:border-blue-500/50 transition-all duration-300 hover:transform hover:scale-105">
+                    <div class="h-64 bg-gradient-to-br from-blue-500 to-teal-500 flex items-center justify-center relative overflow-hidden">
+                        <img src="file:///C:/Users/shrey/Downloads/Portfolio%20work/Checklist%202.png" alt="Professional Development Checklist" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-500 to-teal-500 flex items-center justify-center" style="display: none;">
+                            <div class="text-center">
+                                <i class="fas fa-users text-white text-5xl mb-4"></i>
+                                <h3 class="text-2xl font-bold text-white">Professional Development</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-white mb-3">Professional Development Guide</h4>
+                        <p class="text-gray-400 mb-4">Essential checklist for continuous professional growth, covering skill development, networking strategies, career advancement, and maintaining work-life balance in modern workplaces.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm border border-blue-500/30">Professional Growth</span>
+                            <span class="px-3 py-1 bg-teal-900/50 text-teal-300 rounded-full text-sm border border-teal-500/30">Career Planning</span>
+                        </div>
+                        <button class="w-full bg-gradient-to-r from-blue-500 to-teal-500 text-white py-3 rounded-lg font-semibold hover:from-blue-600 hover:to-teal-600 transition-all duration-300">
+                            <i class="fas fa-download mr-2"></i>
+                            View Guide
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Job Guide 3 -->
+                <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden border border-gray-700 hover:border-green-500/50 transition-all duration-300 hover:transform hover:scale-105">
+                    <div class="h-64 bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center relative overflow-hidden">
+                        <img src="file:///C:/Users/shrey/Downloads/Portfolio%20work/International%20Student%20tips/2.png" alt="International Student Success Tips" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="absolute inset-0 bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center" style="display: none;">
+                            <div class="text-center">
+                                <i class="fas fa-globe text-white text-5xl mb-4"></i>
+                                <h3 class="text-2xl font-bold text-white">International Student Tips</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-white mb-3">International Student Success Guide</h4>
+                        <p class="text-gray-400 mb-4">Comprehensive visual guide designed specifically for international students, covering cultural adaptation, academic success strategies, networking, and career preparation in a new country.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-green-900/50 text-green-300 rounded-full text-sm border border-green-500/30">Cultural Adaptation</span>
+                            <span class="px-3 py-1 bg-emerald-900/50 text-emerald-300 rounded-full text-sm border border-emerald-500/30">Student Success</span>
+                        </div>
+                        <button class="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white py-3 rounded-lg font-semibold hover:from-green-600 hover:to-emerald-600 transition-all duration-300">
+                            <i class="fas fa-download mr-2"></i>
+                            View Guide
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Let's Create Something Amazing</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">Ready to transform your learning initiatives? Let's discuss how we can work together to create engaging educational experiences.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                <div class="space-y-8">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center">
+                            <i class="fas fa-envelope text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white mb-2">Email</h3>
+                            <p class="text-gray-300">shreya.tangirala@email.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-green-500 rounded-full flex items-center justify-center">
+                            <i class="fab fa-linkedin text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white mb-2">LinkedIn</h3>
+                            <p class="text-gray-300">linkedin.com/in/shreya-tangirala</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-orange-500 rounded-full flex items-center justify-center">
+                            <i class="fas fa-phone text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white mb-2">Phone</h3>
+                            <p class="text-gray-300">+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form rounded-2xl p-8">
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-white mb-2">Name</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Your Name">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-white mb-2">Email</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="your.email@example.com">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-white mb-2">Subject</label>
+                            <input type="text" id="subject" name="subject" required class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Project Inquiry">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-white mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none" placeholder="Tell me about your project..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full btn-primary text-white px-8 py-4 rounded-lg font-semibold text-lg">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12 relative z-10 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="text-2xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-4">
+                    Shreya Tangirala
+                </div>
+                <p class="text-gray-400 mb-6">Instructional Designer | eLearning & Digital Learning Specialist</p>
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="#" class="text-gray-400 hover:text-purple-400 transition-colors duration-300">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">
+                        <i class="fab fa-twitter text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-green-400 transition-colors duration-300">
+                        <i class="fas fa-envelope text-2xl"></i>
+                    </a>
+                </div>
+                <div class="border-t border-gray-800 pt-8">
+                    <p class="text-gray-500">&copy; 2024 Shreya Tangirala. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modals -->
+    <div id="project1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('project1')">&times;</span>
+            <h2 class="text-3xl font-bold text-white mb-4">Healthcare Compliance Training</h2>
+            <div class="text-gray-300 space-y-4">
+                <p><strong>Challenge:</strong> A major healthcare network needed to train 2,000+ staff members on updated HIPAA compliance regulations and patient safety protocols.</p>
+                <p><strong>Solution:</strong> Developed an interactive eLearning series with scenario-based learning, branching scenarios, and real-world case studies.</p>
+                <p><strong>Results:</strong> 98% completion rate, 35% improvement in compliance test scores, and reduced training time by 60%.</p>
+                <p><strong>Tools Used:</strong> Articulate Storyline 360, Adobe Creative Suite, LMS Integration</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="project2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('project2')">&times;</span>
+            <h2 class="text-3xl font-bold text-white mb-4">Software Development Bootcamp</h2>
+            <div class="text-gray-300 space-y-4">
+                <p><strong>Challenge:</strong> Design a comprehensive curriculum for a 12-week intensive coding bootcamp that would prepare students for entry-level developer positions.</p>
+                <p><strong>Solution:</strong> Created a project-based curriculum with progressive skill building, peer collaboration, and industry mentorship integration.</p>
+                <p><strong>Results:</strong> 85% job placement rate within 6 months, average salary increase of 150% for graduates.</p>
+                <p><strong>Tools Used:</strong> Curriculum mapping, GitHub integration, Video production, Assessment design</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="project3" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('project3')">&times;</span>
+            <h2 class="text-3xl font-bold text-white mb-4">Gamified Sales Training</h2>
+            <div class="text-gray-300 space-y-4">
+                <p><strong>Challenge:</strong> A tech company's sales team had low engagement with traditional training methods and inconsistent performance.</p>
+                <p><strong>Solution:</strong> Designed a gamified learning platform with points, badges, leaderboards, and team challenges based on real sales scenarios.</p>
+                <p><strong>Results:</strong> 90% engagement rate, 45% increase in sales performance, 70% reduction in onboarding time.</p>
+                <p><strong>Tools Used:</strong> Custom LMS, Mobile-responsive design, Analytics dashboard, Gamification mechanics</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="project4" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('project4')">&times;</span>
+            <h2 class="text-3xl font-bold text-white mb-4">University Online Course</h2>
+            <div class="text-gray-300 space-y-4">
+                <p><strong>Challenge:</strong> Transform a traditional in-person "Digital Marketing Fundamentals" course into an engaging online experience for 500+ students.</p>
+                <p><strong>Solution:</strong> Developed interactive modules with multimedia content, peer discussions, real-world projects, and adaptive assessments.</p>
+                <p><strong>Results:</strong> 92% student satisfaction rate, 25% improvement in learning outcomes, successful accreditation renewal.</p>
+                <p><strong>Tools Used:</strong> Canvas LMS, H5P interactive content, Video lectures, Peer assessment tools</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="project5" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('project5')">&times;</span>
+            <h2 class="text-3xl font-bold text-white mb-4">Microlearning App</h2>
+            <div class="text-gray-300 space-y-4">
+                <p><strong>Challenge:</strong> Create a mobile learning solution for busy professionals who need flexible, bite-sized learning opportunities.</p>
+                <p><strong>Solution:</strong> Designed a microlearning app with 5-minute lessons, offline capability, progress tracking, and personalized learning paths.</p>
+                <p><strong>Results:</strong> 10,000+ downloads in first quarter, 4.8-star app store rating, 80% daily active user retention.</p>
+                <p><strong>Tools Used:</strong> Mobile UX design, Content curation, Analytics integration, Push notification strategy</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="project6" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('project6')">&times;</span>
+            <h2 class="text-3xl font-bold text-white mb-4">VR Safety Training</h2>
+            <div class="text-gray-300 space-y-4">
+                <p><strong>Challenge:</strong> A manufacturing company needed to improve safety training effectiveness while reducing costs and risks associated with traditional hands-on training.</p>
+                <p><strong>Solution:</strong> Developed immersive VR training modules that simulate dangerous scenarios in a safe environment with real-time feedback.</p>
+                <p><strong>Results:</strong> 50% reduction in workplace accidents, 75% cost savings on training, 95% learner engagement scores.</p>
+                <p><strong>Tools Used:</strong> Unity 3D, VR headset integration, 3D modeling, Performance analytics, Safety protocol design</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            const navHeight = 80;
+            const elementPosition = element.offsetTop - navHeight;
+            
+            window.scrollTo({
+                top: elementPosition,
+                behavior: 'smooth'
+            });
+        }
+
+        // Add click handlers to all navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                scrollToSection(targetId);
+                
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Timeline animation on scroll
+        function animateTimeline() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            timelineItems.forEach(item => {
+                const rect = item.getBoundingClientRect();
+                const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+                
+                if (isVisible) {
+                    item.classList.add('animate');
+                }
+            });
+        }
+
+        // Contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            
+            // Show success message
+            showNotification('Thank you for your message! I\'ll get back to you soon.', 'success');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Notification system
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg text-white max-w-sm transform transition-all duration-300 translate-x-full`;
+            
+            if (type === 'success') {
+                notification.classList.add('bg-green-500');
+            } else if (type === 'error') {
+                notification.classList.add('bg-red-500');
+            } else {
+                notification.classList.add('bg-blue-500');
+            }
+            
+            notification.innerHTML = `
+                <div class="flex items-center justify-between">
+                    <span>${message}</span>
+                    <button onclick="this.parentElement.parentElement.remove()" class="ml-4 text-white hover:text-gray-200">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full');
+            }, 100);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                notification.classList.add('translate-x-full');
+                setTimeout(() => {
+                    if (notification.parentElement) {
+                        notification.remove();
+                    }
+                }, 300);
+            }, 5000);
+        }
+
+        // Scroll event listeners
+        window.addEventListener('scroll', function() {
+            animateTimeline();
+            
+            // Update navigation active state
+            const sections = ['home', 'about', 'skills', 'experience', 'projects', 'contact'];
+            const navHeight = 100;
+            
+            sections.forEach(sectionId => {
+                const section = document.getElementById(sectionId);
+                const rect = section.getBoundingClientRect();
+                const isActive = rect.top <= navHeight && rect.bottom > navHeight;
+                
+                const navLink = document.querySelector(`a[href="#${sectionId}"]`);
+                if (navLink) {
+                    if (isActive) {
+                        navLink.classList.add('text-purple-400');
+                        navLink.classList.remove('text-gray-300');
+                    } else {
+                        navLink.classList.remove('text-purple-400');
+                        navLink.classList.add('text-gray-300');
+                    }
+                }
+            });
+        });
+
+        // Generate stars
+        function generateStars() {
+            const starsContainer = document.querySelector('.stars-container');
+            const numStars = 200;
+            
+            // Generate regular twinkling stars
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = Math.random() * 4 + 1 + 'px';
+                star.style.height = star.style.width;
+                star.style.animationDelay = Math.random() * 4 + 's';
+                starsContainer.appendChild(star);
+            }
+            
+            // Generate constellation stars (larger, brighter)
+            for (let i = 0; i < 30; i++) {
+                const constellationStar = document.createElement('div');
+                constellationStar.className = 'constellation-star';
+                constellationStar.style.left = Math.random() * 100 + '%';
+                constellationStar.style.top = Math.random() * 100 + '%';
+                constellationStar.style.width = Math.random() * 3 + 2 + 'px';
+                constellationStar.style.height = constellationStar.style.width;
+                constellationStar.style.animationDelay = Math.random() * 2 + 's';
+                starsContainer.appendChild(constellationStar);
+            }
+            
+            // Generate shooting stars (right to left) more frequently
+            setInterval(() => {
+                const movingStar = document.createElement('div');
+                movingStar.className = 'moving-star';
+                movingStar.style.top = Math.random() * 80 + 10 + '%';
+                movingStar.style.animationDelay = '0s';
+                starsContainer.appendChild(movingStar);
+                
+                setTimeout(() => {
+                    if (movingStar.parentElement) {
+                        movingStar.remove();
+                    }
+                }, 6000);
+            }, 1500);
+
+            // Generate shooting stars (left to right)
+            setInterval(() => {
+                const movingStarLeft = document.createElement('div');
+                movingStarLeft.className = 'moving-star-left';
+                movingStarLeft.style.top = Math.random() * 70 + 15 + '%';
+                movingStarLeft.style.animationDelay = '0s';
+                starsContainer.appendChild(movingStarLeft);
+                
+                setTimeout(() => {
+                    if (movingStarLeft.parentElement) {
+                        movingStarLeft.remove();
+                    }
+                }, 8000);
+            }, 3000);
+
+            // Generate diagonal shooting stars
+            setInterval(() => {
+                const movingStarDiagonal = document.createElement('div');
+                movingStarDiagonal.className = 'moving-star-diagonal';
+                movingStarDiagonal.style.animationDelay = '0s';
+                starsContainer.appendChild(movingStarDiagonal);
+                
+                setTimeout(() => {
+                    if (movingStarDiagonal.parentElement) {
+                        movingStarDiagonal.remove();
+                    }
+                }, 10000);
+            }, 4000);
+
+            // Generate vertical shooting stars
+            setInterval(() => {
+                const movingStarVertical = document.createElement('div');
+                movingStarVertical.className = 'moving-star-vertical';
+                movingStarVertical.style.left = Math.random() * 90 + 5 + '%';
+                movingStarVertical.style.animationDelay = '0s';
+                starsContainer.appendChild(movingStarVertical);
+                
+                setTimeout(() => {
+                    if (movingStarVertical.parentElement) {
+                        movingStarVertical.remove();
+                    }
+                }, 12000);
+            }, 5000);
+        }
+
+        // Initialize animations on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            animateTimeline();
+            generateStars();
+        });
+
+        // Video upload functionality
+        function handleVideoUpload() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'video/*';
+            input.style.display = 'none';
+            
+            input.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const videoContainer = document.querySelector('#video-presentation .aspect-video');
+                    const videoURL = URL.createObjectURL(file);
+                    
+                    videoContainer.innerHTML = `
+                        <video controls class="w-full h-full object-cover rounded-t-2xl">
+                            <source src="${videoURL}" type="${file.type}">
+                            Your browser does not support the video tag.
+                        </video>
+                    `;
+                    
+                    showNotification('Video uploaded successfully! Your Camtasia training presentation is now ready to view.', 'success');
+                }
+            });
+            
+            document.body.appendChild(input);
+            input.click();
+            document.body.removeChild(input);
+        }
+
+        // Keyboard navigation for accessibility
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                // Close any open modals
+                document.querySelectorAll('.modal').forEach(modal => {
+                    modal.style.display = 'none';
+                });
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9936ea2cb7b01f4e',t:'MTc2MTI4MjA3MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
